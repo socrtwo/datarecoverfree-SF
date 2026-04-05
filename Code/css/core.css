@@ -1,0 +1,32 @@
+.stars {
+	clear:left;
+	list-style:none;
+	width:90px;
+	height:17px;
+	background-image:url(../images/stars.png);
+	background-repeat:no-repeat;
+	float:left;
+	display:inline;
+	margin:5px 0 0 5px;
+}
+.stars li,.stars li a {
+	float:left;
+	display:block;
+	width:18px;
+	height:17px;
+}
+.rate-1,.star-1 {
+	background-position:0 -17px;
+}
+.rate-2,.star-2 {
+	background-position:0 -34px;
+}
+.rate-3,.star-3 {
+	background-position:0 -51px;
+}
+.rate-4,.star-4 {
+	background-position:0 -68px;
+}
+.rate-5,.star-5 {
+	background-position:0 -85px;
+}

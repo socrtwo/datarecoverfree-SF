@@ -1,0 +1,121 @@
+RewriteEngine On
+
+#Home Page
+RewriteRule ^home$ index.php
+RewriteRule ^home/$ index.php
+
+#Category Page
+RewriteRule ^category/([a-zA-Z0-9_-]+)/([0-9]+)$ category.php?id=$2
+RewriteRule ^category/([a-zA-Z0-9_-]+)/([0-9]+)/$ category.php?id=$2
+
+#Sub Category Page
+RewriteRule ^sub-category/([a-zA-Z0-9_-]+)/([0-9]+)$ subcategory.php?id=$2
+RewriteRule ^sub-category/([a-zA-Z0-9_-]+)/([0-9]+)/$ subcategory.php?id=$2
+
+#Hot Software Page
+RewriteRule ^hot-software/([0-9]+)$ hotsoftware.php?id=$1
+RewriteRule ^hot-software/([0-9]+)/$ hotsoftware.php?id=$1
+
+#Top Downloads Page
+RewriteRule ^top-downloads/([0-9]+)$ topdownloads.php?id=$1
+RewriteRule ^top-downloads/([0-9]+)/$ topdownloads.php?id=$1
+
+#All Hot Software Page
+RewriteRule ^hot-software-all$ hotsoftware_all.php
+RewriteRule ^hot-software-all/$ hotsoftware_all.php
+
+#All New Software Page
+RewriteRule ^new-software-all$ newsoftware_all.php
+RewriteRule ^new-software-all/$ newsoftware_all.php
+
+#All Top Downloads Page
+RewriteRule ^top-downloads-all$ topdownloads_all.php
+RewriteRule ^top-downloads-all/$ topdownloads_all.php
+
+#Popular Searches Page
+RewriteRule ^popularsearch/([a-zA-Z0-9=_-]+)$ psearch.php?id=$1
+RewriteRule ^popularsearch/([a-zA-Z0-9=_-]+)/$ psearch.php?id=$1
+
+#Popular Search All Page
+RewriteRule ^popularsearch_all$ psearch_all.php
+RewriteRule ^popularsearch_all/$ psearch_all.php
+
+#Forgot Password Page
+RewriteRule ^forgot-password$ forgotpassword.php
+RewriteRule ^forgot-password/$ forgotpassword.php
+
+#Software Page
+RewriteRule ^software/([a-zA-Z0-9_-]+)/([0-9]+)$ software.php?id=$2
+RewriteRule ^software/([a-zA-Z0-9_-]+)/([0-9]+)/$ software.php?id=$2
+
+#Software Review Page
+RewriteRule ^software-review/([a-zA-Z0-9_-]+)/([0-9]+)$ software_review.php?id=$2
+RewriteRule ^software-review/([a-zA-Z0-9_-]+)/([0-9]+)/$ software_review.php?id=$2
+
+#Single Review Page
+RewriteRule ^review/([0-9]+)$ review.php?id=$1
+RewriteRule ^review/([0-9]+)/$ review.php?id=$1
+
+#Category Index Page
+RewriteRule ^categories$ categories.php
+RewriteRule ^categories/$ categories.php
+
+#Help Page
+RewriteRule ^help$ help.php
+RewriteRule ^help/$ help.php
+
+#About Page
+RewriteRule ^about$ about.php
+RewriteRule ^about/$ about.php
+
+#Download Page
+RewriteRule ^download/([a-zA-Z0-9_-]+)/([0-9]+)$ download.php?id=$2
+RewriteRule ^download/([a-zA-Z0-9_-]+)/([0-9]+)/$ download.php?id=$2
+
+#Commercial Page
+RewriteRule ^commercial$ commercial.php
+RewriteRule ^commercial/$ commercial.php
+
+#Commercial Page
+RewriteRule ^general_links$ general_links.php
+RewriteRule ^general_links/$ general_links.php
+
+#Commercial Page
+RewriteRule ^freeware_sites$ freeware_sites.php
+RewriteRule ^freeware_sites/$ freeware_sites.php
+
+#Commercial Page
+RewriteRule ^freestuff$ freestuff.php
+RewriteRule ^freestuff/$ freestuff.php
+
+#Commercial Page
+RewriteRule ^corruptfile$ corruptfile.php
+RewriteRule ^corruptfile/$ corruptfile.php
+
+#Commercial Page
+RewriteRule ^corruptfileware$ corruptfileware.php
+RewriteRule ^corruptfileware/$ corruptfileware.php
+
+#Commercial Page
+RewriteRule ^deletefile$ deletefile.php
+RewriteRule ^deletefile/$ deletefile.php
+
+#Commercial Page
+RewriteRule ^deletefilerecovery$ deletefilerecovery.php
+RewriteRule ^deletefilerecovery/$ deletefilerecovery.php
+
+#Commercial Page
+RewriteRule ^failingdisk$ failingdisk.php
+RewriteRule ^failingdisk/$ failingdisk.php
+
+#Commercial Page
+RewriteRule ^failingdiskcommercial$ failingdiskcommercial.php
+RewriteRule ^failingdiskcommercial/$ failingdiskcommercial.php
+
+#Commercial Page
+RewriteRule ^passwordrecovery$ passwordrecovery.php
+RewriteRule ^passwordrecovery/$ passwordrecovery.php
+
+#Commercial Page
+RewriteRule ^passwordrecoverysoft$ passwordrecoverysoft.php
+RewriteRule ^passwordrecoverysoft/$ passwordrecoverysoft.php
