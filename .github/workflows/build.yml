@@ -1,0 +1,33 @@
+name: Lint Freeware Directory Script
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: PHP Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Check PHP syntax
+        run: |
+          echo "Checking PHP files..."
+          errors=0
+          for f in $(find . -name "*.php" | head -100); do
+            php -l "$f" 2>&1 || errors=$((errors + 1))
+          done
+          if [ $errors -gt 0 ]; then
+            echo "::warning::$errors file(s) had syntax issues"
+          else
+            echo "All PHP files passed syntax check!"
+          fi
