@@ -1,9 +1,18 @@
-# Freeware Directory Script
+<!--MODERNIZED:v1-->
+# Datarecoverfree
 
-<!--PAGES_LINK_BANNER-->
-> 🌐 **Live page:** [https://socrtwo.github.io/datarecoverfree-SF/](https://socrtwo.github.io/datarecoverfree-SF/)  
-> 📦 **Releases:** [github.com/socrtwo/datarecoverfree-SF/releases](https://github.com/socrtwo/datarecoverfree-SF/releases)
-<!--/PAGES_LINK_BANNER-->
+> Migrated from SourceForge via SF2GH Migrator
+
+[![Live page](https://img.shields.io/badge/live-page-ff2e93?style=for-the-badge)](https://socrtwo.github.io/datarecoverfree-SF/)
+[![Releases](https://img.shields.io/github/v/release/socrtwo/datarecoverfree-SF?style=for-the-badge&color=7c3aed)](https://github.com/socrtwo/datarecoverfree-SF/releases)
+[![License](https://img.shields.io/github/license/socrtwo/datarecoverfree-SF?style=for-the-badge&color=22d3ee)](https://github.com/socrtwo/datarecoverfree-SF/blob/main/LICENSE)
+[![Last commit](https://img.shields.io/github/last-commit/socrtwo/datarecoverfree-SF?style=for-the-badge&color=34d399)](https://github.com/socrtwo/datarecoverfree-SF/commits)
+
+🌐 **Live:** https://socrtwo.github.io/datarecoverfree-SF/  
+📦 **Downloads:** [Releases](https://github.com/socrtwo/datarecoverfree-SF/releases)  
+📂 **Source:** [socrtwo/datarecoverfree-SF](https://github.com/socrtwo/datarecoverfree-SF)
+
+---
 
 Open-source freeware directory website script with configurable categories, user and webmaster ratings. Includes sample data with 400+ data-recovery freeware entries.
 
@@ -68,3 +77,25 @@ Contributions are welcome! Feel free to:
 ## License
 
 MIT License — see [LICENSE](LICENSE) for details.
+
+---
+
+## 📜 SourceForge heritage
+
+This project originated on **SourceForge** before being migrated to GitHub. The legacy SourceForge entry, if still available, can be searched at:
+
+🔗 https://sourceforge.net/projects/datarecoverfree/
+
+The repository here at `socrtwo/datarecoverfree-SF` is the canonical, actively-maintained home. All future updates, issue tracking, and releases happen on GitHub.
+
+## 🛠️ Contributing
+
+Issues and pull requests are welcome at [https://github.com/socrtwo/datarecoverfree-SF/issues](https://github.com/socrtwo/datarecoverfree-SF/issues).
+
+## 📝 License
+
+See the [LICENSE](https://github.com/socrtwo/datarecoverfree-SF/blob/main/LICENSE) file in this repository. If no license file is present, the project is shared as-is for reference and personal use; please contact the maintainer for other use cases.
+
+---
+
+*Maintained by [@socrtwo](https://github.com/socrtwo)*
