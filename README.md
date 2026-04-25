@@ -1,5 +1,10 @@
 # Freeware Directory Script
 
+<!--PAGES_LINK_BANNER-->
+> 🌐 **Live page:** [https://socrtwo.github.io/datarecoverfree-SF/](https://socrtwo.github.io/datarecoverfree-SF/)  
+> 📦 **Releases:** [github.com/socrtwo/datarecoverfree-SF/releases](https://github.com/socrtwo/datarecoverfree-SF/releases)
+<!--/PAGES_LINK_BANNER-->
+
 Open-source freeware directory website script with configurable categories, user and webmaster ratings. Includes sample data with 400+ data-recovery freeware entries.
 
 ## Screenshots
