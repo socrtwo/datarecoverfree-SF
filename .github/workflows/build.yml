@@ -1,4 +1,4 @@
-name: Lint Freeware Directory Script
+name: CI
 
 on:
   push:
@@ -8,8 +8,43 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
-    name: PHP Syntax Check
+  web:
+    name: Validate web app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Syntax-check JavaScript
+        run: |
+          for f in web/*.js; do
+            echo "node --check $f"
+            node --check "$f"
+          done
+
+      - name: Validate directory data (software.json)
+        run: |
+          python3 - <<'PY'
+          import json
+          with open('web/data/software.json', encoding='utf-8') as f:
+              data = json.load(f)
+          cats = {c['id'] for c in data['categories']}
+          oses = {o['id'] for o in data['oses']}
+          ids = set()
+          for e in data['entries']:
+              assert e['id'] not in ids, f"duplicate id {e['id']}"
+              ids.add(e['id'])
+              for k in ('name', 'description', 'license', 'homepage'):
+                  assert e.get(k), f"{e['id']}: missing {k}"
+              assert set(e['categories']) <= cats, f"{e['id']}: unknown category"
+              assert set(e['os']) <= oses, f"{e['id']}: unknown os"
+          print(f"OK: {len(ids)} entries, {len(cats)} categories, {len(oses)} OSes")
+          PY
+
+      - name: Smoke-build release bundles
+        run: bash scripts/build-releases.sh vCI
+
+  legacy-php:
+    name: Lint legacy PHP (historical)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,13 +56,13 @@ jobs:
 
       - name: Check PHP syntax
         run: |
-          echo "Checking PHP files..."
+          echo "Checking legacy PHP files..."
           errors=0
-          for f in $(find . -name "*.php" | head -100); do
+          for f in $(find legacy -name "*.php" | head -100); do
             php -l "$f" 2>&1 || errors=$((errors + 1))
           done
           if [ $errors -gt 0 ]; then
-            echo "::warning::$errors file(s) had syntax issues"
+            echo "::warning::$errors legacy file(s) had syntax issues (historical code, non-blocking)"
           else
-            echo "All PHP files passed syntax check!"
+            echo "All legacy PHP files passed syntax check!"
           fi

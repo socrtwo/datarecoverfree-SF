@@ -26,3 +26,9 @@ ehthumbs.db
 # Config with credentials
 config.php
 cookiefile
+
+# Release build output
+/dist/
+
+# Generated file:// fallback (built by scripts/build-releases.sh)
+web/data/software.data.js

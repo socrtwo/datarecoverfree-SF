@@ -1,0 +1,278 @@
+{
+  "$schema-note": "Directory data for Data Recover Free. Modeled on the legacy MySQL schema (softwares/categories/os tables). To add an entry, append an object to `entries` and bump `version`. Fields: id (unique slug; for S2 suite tools use the s2-file-id.js program key so the identifier widget can highlight them), name, description, categories (array of category ids from `categories`), os (array of os ids from `oses`), license, homepage (URL), source (optional URL), tags (free-form search keywords).",
+  "version": 2,
+  "updated": "2026-07-21",
+  "categories": [
+    { "id": "word", "label": "Word documents" },
+    { "id": "excel", "label": "Excel spreadsheets" },
+    { "id": "powerpoint", "label": "PowerPoint presentations" },
+    { "id": "openoffice", "label": "OpenDocument / OpenOffice" },
+    { "id": "zip", "label": "ZIP archives" },
+    { "id": "xml", "label": "XML files" },
+    { "id": "universal", "label": "Any file type" },
+    { "id": "disk", "label": "Disks & partitions" },
+    { "id": "carving", "label": "File carving" },
+    { "id": "directory", "label": "Directories & catalogs" }
+  ],
+  "oses": [
+    { "id": "web", "label": "Web / all platforms" },
+    { "id": "windows", "label": "Windows" },
+    { "id": "macos", "label": "macOS" },
+    { "id": "linux", "label": "Linux" }
+  ],
+  "entries": [
+    {
+      "id": "universal",
+      "name": "Universal File Repair Tool",
+      "description": "One tool that tries every applicable S2 recovery strategy on any damaged file: identifies the format, then routes it through the right repair passes. Good first stop when you do not know what is wrong.",
+      "categories": ["universal"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/Universal-File-Repair-Tool/",
+      "source": "https://github.com/socrtwo/Universal-File-Repair-Tool",
+      "tags": ["s2", "repair", "any", "auto", "universal"]
+    },
+    {
+      "id": "corruptdocxrepair",
+      "name": "CorruptDOCXRepair",
+      "description": "Repairs corrupt Word .docx files by rebuilding the OOXML package: recovers the ZIP container, fixes damaged XML parts, and reassembles a document Word will open.",
+      "categories": ["word"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/CorruptDOCXRepair/",
+      "source": "https://github.com/socrtwo/CorruptDOCXRepair",
+      "tags": ["s2", "docx", "word", "ooxml", "repair"]
+    },
+    {
+      "id": "quickwordrecovr",
+      "name": "Quick Word Recovr",
+      "description": "Fast, minimal recovery for damaged .docx files: extracts the main document text quickly when a full structural repair is not needed.",
+      "categories": ["word"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/quickwordrecovr-SF/",
+      "source": "https://github.com/socrtwo/quickwordrecovr-SF",
+      "tags": ["s2", "docx", "word", "quick", "text"]
+    },
+    {
+      "id": "wordrecovery",
+      "name": "Word Recovery",
+      "description": "Recovers text and content from damaged Word files, covering both legacy binary .doc and modern .docx formats.",
+      "categories": ["word"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/wordrecovery-SF/",
+      "source": "https://github.com/socrtwo/wordrecovery-SF",
+      "tags": ["s2", "doc", "docx", "word", "repair"]
+    },
+    {
+      "id": "damageddocx2txt",
+      "name": "Damageddocx2txt",
+      "description": "Salvages plain text out of severely damaged .docx files when the document can no longer be rebuilt — a last-resort text extractor.",
+      "categories": ["word"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/damageddocx2txt-SF/",
+      "source": "https://github.com/socrtwo/damageddocx2txt-SF",
+      "tags": ["s2", "docx", "word", "text", "extract", "salvage"]
+    },
+    {
+      "id": "corruptexcelrec",
+      "name": "S2 Recovery Tools for Microsoft Excel",
+      "description": "Recovers corrupt .xls and .xlsx spreadsheets with six strategies (Auto, Strict Read, Lenient XML Repair, ZIP Recovery, Salvage Cells, Convert to CSV). Cross-platform PWA plus a legacy Windows deep-recovery tool.",
+      "categories": ["excel"],
+      "os": ["web", "windows"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/corruptexcelrec-SF/",
+      "source": "https://github.com/socrtwo/corruptexcelrec-SF",
+      "tags": ["s2", "xls", "xlsx", "excel", "spreadsheet", "csv", "repair"]
+    },
+    {
+      "id": "excelrcvryaddin",
+      "name": "Excel Recovery Addin",
+      "description": "An Excel add-in that adds recovery routines for damaged workbooks directly inside Microsoft Excel on Windows.",
+      "categories": ["excel"],
+      "os": ["windows"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/excelrcvryaddin-SF/",
+      "source": "https://github.com/socrtwo/excelrcvryaddin-SF",
+      "tags": ["s2", "xls", "excel", "addin", "windows"]
+    },
+    {
+      "id": "pptxrecovery",
+      "name": "PPTX Recovery",
+      "description": "Repairs corrupt PowerPoint .pptx presentations entirely in the browser: rebuilds the ZIP package, repairs slide XML, and salvages slide text.",
+      "categories": ["powerpoint"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/pptxrecovery-SF/",
+      "source": "https://github.com/socrtwo/pptxrecovery-SF",
+      "tags": ["s2", "pptx", "powerpoint", "slides", "repair"]
+    },
+    {
+      "id": "oorecovery",
+      "name": "OO Recovery",
+      "description": "Recovers damaged OpenDocument files (.odt, .ods, .odp, .odg) produced by OpenOffice / LibreOffice.",
+      "categories": ["openoffice"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/oorecovery-SF/",
+      "source": "https://github.com/socrtwo/oorecovery-SF",
+      "tags": ["s2", "odt", "ods", "odp", "odg", "openoffice", "libreoffice"]
+    },
+    {
+      "id": "immortalzip",
+      "name": "Immortal Zip",
+      "description": "Repairs corrupt ZIP archives (and ZIP-based formats like .jar, .apk, .epub) by scanning for local file headers and inflating each entry independently — works even when the central directory is gone.",
+      "categories": ["zip"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/Immortal-Zip/",
+      "source": "https://github.com/socrtwo/Immortal-Zip",
+      "tags": ["s2", "zip", "jar", "apk", "epub", "archive", "unzip", "repair"]
+    },
+    {
+      "id": "xmltrncatorfixr",
+      "name": "XML Truncator-Fixer",
+      "description": "Fixes truncated or malformed XML — including the XML parts inside .docx, .xlsx, and .pptx packages — by closing open tags and trimming damage so parsers accept the file again.",
+      "categories": ["xml", "word", "excel", "powerpoint"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/xmltrncatorfixr-SF/",
+      "source": "https://github.com/socrtwo/xmltrncatorfixr-SF",
+      "tags": ["s2", "xml", "truncated", "docx", "xlsx", "pptx", "repair"]
+    },
+    {
+      "id": "savvyoffice",
+      "name": "Savvy Repair for Microsoft Office",
+      "description": "One repair tool for the whole Microsoft Office family: damaged .doc, .xls, .ppt and their OOXML successors .docx, .xlsx, .pptx.",
+      "categories": ["word", "excel", "powerpoint"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/savvyoffice-SF/",
+      "source": "https://github.com/socrtwo/savvyoffice-SF",
+      "tags": ["s2", "office", "doc", "xls", "ppt", "docx", "xlsx", "pptx"]
+    },
+    {
+      "id": "coffice2txt",
+      "name": "Coffice2txt",
+      "description": "Extracts readable text from corrupt Office files (.doc, .xls, .ppt, .docx, .xlsx, .pptx) when full repair fails — get the words out even if the formatting is lost.",
+      "categories": ["word", "excel", "powerpoint"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/coffice2txt-SF/",
+      "source": "https://github.com/socrtwo/coffice2txt-SF",
+      "tags": ["s2", "office", "text", "extract", "salvage"]
+    },
+    {
+      "id": "crrptoffcxtrctr",
+      "name": "Crrptoffcxtrctr",
+      "description": "Corrupt Office extractor: pulls the surviving parts (text, images, media, XML) out of damaged .docx, .xlsx, and .pptx packages.",
+      "categories": ["word", "excel", "powerpoint"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/crrptoffcxtrctr-SF/",
+      "source": "https://github.com/socrtwo/crrptoffcxtrctr-SF",
+      "tags": ["s2", "office", "extract", "docx", "xlsx", "pptx", "media"]
+    },
+    {
+      "id": "saveofficedata",
+      "name": "Saveofficedata",
+      "description": "Rescues data from damaged legacy Office binaries (.doc, .xls, .ppt) — the pre-2007 formats that other OOXML-focused tools skip.",
+      "categories": ["word", "excel", "powerpoint"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/saveofficedata-SF/",
+      "source": "https://github.com/socrtwo/saveofficedata-SF",
+      "tags": ["s2", "doc", "xls", "ppt", "legacy", "binary"]
+    },
+    {
+      "id": "filefixerbot",
+      "name": "File Fixer Bot",
+      "description": "An assistant-style tool that walks you through diagnosing and fixing a broken file of any type, picking the right S2 strategy for you.",
+      "categories": ["universal"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/file-fixer-bot/",
+      "source": "https://github.com/socrtwo/file-fixer-bot",
+      "tags": ["s2", "bot", "assistant", "any", "universal"]
+    },
+    {
+      "id": "datarecoverfree",
+      "name": "Data Recover Free",
+      "description": "This site: a searchable directory of free and open-source data-recovery software, including the whole S2 recovery suite. Successor to the original SourceForge PHP directory.",
+      "categories": ["directory"],
+      "os": ["web"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/datarecoverfree-SF/",
+      "source": "https://github.com/socrtwo/datarecoverfree-SF",
+      "tags": ["s2", "directory", "catalog", "index"]
+    },
+    {
+      "id": "vistaprevrsrcvr",
+      "name": "Previous Version Explorer",
+      "description": "Explores and restores Windows 'Previous Versions' (Volume Shadow Copy) snapshots of files and folders — often the fastest way to get an uncorrupted copy back.",
+      "categories": ["universal"],
+      "os": ["windows"],
+      "license": "Open source (S2 suite)",
+      "homepage": "https://socrtwo.github.io/vistaprevrsrcvr-SF/",
+      "source": "https://github.com/socrtwo/vistaprevrsrcvr-SF",
+      "tags": ["s2", "shadow copy", "previous versions", "windows", "restore"]
+    },
+    {
+      "id": "testdisk",
+      "name": "TestDisk",
+      "description": "Powerful free partition-recovery tool: fixes partition tables, recovers deleted partitions, rebuilds boot sectors, and undeletes files from FAT/NTFS/ext filesystems.",
+      "categories": ["disk"],
+      "os": ["windows", "macos", "linux"],
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://www.cgsecurity.org/wiki/TestDisk",
+      "source": "https://github.com/cgsecurity/testdisk",
+      "tags": ["partition", "boot sector", "undelete", "ntfs", "fat", "ext"]
+    },
+    {
+      "id": "photorec",
+      "name": "PhotoRec",
+      "description": "File-carving companion to TestDisk: recovers photos, documents, and hundreds of other file types from disks and memory cards by signature, ignoring the (possibly destroyed) filesystem.",
+      "categories": ["carving", "disk"],
+      "os": ["windows", "macos", "linux"],
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://www.cgsecurity.org/wiki/PhotoRec",
+      "source": "https://github.com/cgsecurity/testdisk",
+      "tags": ["photo", "carving", "signature", "memory card", "undelete"]
+    },
+    {
+      "id": "ddrescue",
+      "name": "GNU ddrescue",
+      "description": "Data-recovery imaging tool: copies failing disks and partitions to an image, retrying and mapping bad sectors so you rescue the maximum data from dying hardware before it is gone.",
+      "categories": ["disk"],
+      "os": ["linux", "macos"],
+      "license": "GPL-2.0-or-later",
+      "homepage": "https://www.gnu.org/software/ddrescue/",
+      "source": "https://ftp.gnu.org/gnu/ddrescue/",
+      "tags": ["imaging", "failing disk", "bad sectors", "clone", "rescue"]
+    },
+    {
+      "id": "scalpel",
+      "name": "Scalpel",
+      "description": "Fast, frugal file carver: recovers files from disk images by header/footer signatures. A rewrite of Foremost focused on performance and low memory use.",
+      "categories": ["carving"],
+      "os": ["linux", "macos", "windows"],
+      "license": "GPL-2.0",
+      "homepage": "https://github.com/sleuthkit/scalpel",
+      "source": "https://github.com/sleuthkit/scalpel",
+      "tags": ["carving", "forensics", "signatures", "disk image"]
+    },
+    {
+      "id": "foremost",
+      "name": "Foremost",
+      "description": "Console file-carving program originally developed by the US Air Force Office of Special Investigations: recovers files from disk images based on their headers, footers, and internal structures.",
+      "categories": ["carving"],
+      "os": ["linux"],
+      "license": "Public domain",
+      "homepage": "http://foremost.sourceforge.net/",
+      "source": "http://foremost.sourceforge.net/",
+      "tags": ["carving", "forensics", "headers", "disk image"]
+    }
+  ]
+}

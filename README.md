@@ -1,101 +1,109 @@
-<!--MODERNIZED:v1-->
-# Datarecoverfree
+# Data Recover Free
 
-> Migrated from SourceForge via SF2GH Migrator
+A searchable, filterable directory of **free and open-source data-recovery
+software** — the S2 in-browser repair suite plus battle-tested classics like
+TestDisk, PhotoRec, GNU ddrescue, Scalpel, and Foremost. It also bundles the
+**S2 File Identifier**: drop a corrupt file on the page and it reads the magic
+numbers, separates concatenated/embedded pieces, and points you at the right
+recovery tool — filtering the directory to match.
 
-[![Live page](https://img.shields.io/badge/live-page-ff2e93?style=for-the-badge)](https://socrtwo.github.io/datarecoverfree-SF/)
-[![Releases](https://img.shields.io/github/v/release/socrtwo/datarecoverfree-SF?style=for-the-badge&color=7c3aed)](https://github.com/socrtwo/datarecoverfree-SF/releases)
-[![License](https://img.shields.io/github/license/socrtwo/datarecoverfree-SF?style=for-the-badge&color=22d3ee)](https://github.com/socrtwo/datarecoverfree-SF/blob/main/LICENSE)
-[![Last commit](https://img.shields.io/github/last-commit/socrtwo/datarecoverfree-SF?style=for-the-badge&color=34d399)](https://github.com/socrtwo/datarecoverfree-SF/commits)
-
-🌐 **Live:** https://socrtwo.github.io/datarecoverfree-SF/  
-📦 **Downloads:** [Releases](https://github.com/socrtwo/datarecoverfree-SF/releases)  
+🌐 **Live:** https://socrtwo.github.io/datarecoverfree-SF/
+📦 **Downloads:** [Releases](https://github.com/socrtwo/datarecoverfree-SF/releases)
 📂 **Source:** [socrtwo/datarecoverfree-SF](https://github.com/socrtwo/datarecoverfree-SF)
 
----
+Everything is **100% client-side** — plain HTML/CSS/JS, no frameworks, no
+server, no upload. The app is an installable PWA and works offline after the
+first visit.
 
-Open-source freeware directory website script with configurable categories, user and webmaster ratings. Includes sample data with 400+ data-recovery freeware entries.
+## Using the app
 
-## Screenshots
+- **Search** by name, description, or tag.
+- **Filter** by what a tool repairs (Word, Excel, PowerPoint, OpenDocument,
+  ZIP, XML, disks, file carving, anything) and by operating system.
+- **Identify a corrupt file:** choose a file in the feature box at the top.
+  The identifier analyzes it locally, offers any embedded/concatenated pieces
+  for download, and highlights the recommended repair tools in the directory.
 
-Visit the [SourceForge project page](https://sourceforge.net/projects/datarecoverfree/) to view screenshots.
+## Adding or editing directory entries
 
-> **Tip:** If you have screenshots to contribute, open a PR adding them to a `screenshots/` folder!
+The whole directory lives in one versioned JSON file:
+[`web/data/software.json`](web/data/software.json). To add software, append an
+object to the `entries` array (and bump `version`):
 
-**Language:** PHP / MySQL  
-**License:** MIT
-
-## Features
-
-- Configurable category system for organizing software listings
-- Dual rating system (user ratings + webmaster ratings)
-- Search and browse functionality
-- Admin panel for managing entries
-- Sample dataset: 400+ data recovery freeware listings
-
-## System Requirements
-
-- PHP 7.0 or later
-- A web server (Apache, Nginx, or PHP built-in server)
-- MySQL/MariaDB (if the project uses a database)
-
-## Installation & Usage
-
-### Running Locally
-
-```bash
-# Quick start with PHP built-in server
-php -S localhost:8000
-
-# Then open http://localhost:8000 in your browser
+```json
+{
+  "id": "my-tool",
+  "name": "My Recovery Tool",
+  "description": "One or two sentences on what it recovers and how.",
+  "categories": ["word"],
+  "os": ["web", "windows"],
+  "license": "GPL-3.0",
+  "homepage": "https://example.org/my-tool/",
+  "source": "https://example.org/my-tool/source",
+  "tags": ["docx", "repair"]
+}
 ```
 
-### Full Setup (Apache/Nginx)
+- `categories` and `os` must use ids declared in the `categories` / `oses`
+  arrays at the top of the same file (add new ones there if needed).
+- `id` must be unique. For S2-suite tools, use the program key from
+  `web/s2-file-id.js` so the identifier widget can highlight the entry.
+- `source` and `tags` are optional.
 
-1. Copy files to your web root (e.g. `/var/www/html/`)
-2. If a database is needed, import the `.sql` file into MySQL
-3. Copy `config.example.php` to `config.php` and fill in your settings
-4. Open the site in your browser
+CI validates the JSON on every push. If you change any cached asset, bump the
+cache version in `web/sw.js` so returning users don't see stale code.
 
-## Origin
+## Running locally
 
-This project was originally hosted on SourceForge and has been migrated to GitHub for easier access and collaboration.
+```bash
+cd web
+python3 -m http.server 8080
+# open http://localhost:8080
+```
 
-- **SourceForge:** [datarecoverfree](https://sourceforge.net/projects/datarecoverfree/)
-- **Migrated with:** [SF2GH Migrator](https://github.com/socrtwo/sf-to-github)
+(Serving over HTTP is needed for `fetch()` of the JSON and the service
+worker; release bundles additionally include a generated
+`data/software.data.js` fallback so they work from `file://` too.)
 
-## Contributing
+## Releasing
 
-Contributions are welcome! Feel free to:
+Platform bundles (Windows, macOS, Linux, ChromeOS, Android, iOS, Web) are
+built by [`scripts/build-releases.sh`](scripts/build-releases.sh) and
+published by the
+[Release workflow](.github/workflows/release.yml):
 
-1. Fork this repository
-2. Create a feature branch (`git checkout -b my-feature`)
-3. Commit your changes (`git commit -m "Add my feature"`)
-4. Push to the branch (`git push origin my-feature`)
-5. Open a Pull Request
+- **Actions → "Build & publish multi-platform releases" → Run workflow** with
+  a version like `v1.0.0`, **or**
+- push a tag: `git tag v1.0.0 && git push origin v1.0.0`.
 
-## License
+Each bundle is the same static app plus a small per-platform launcher;
+`SHA256SUMS` is attached for verification. To build locally:
+`bash scripts/build-releases.sh vTEST` (output in `dist/`).
 
-MIT License — see [LICENSE](LICENSE) for details.
+GitHub Pages deploys `web/` automatically on every push to `main`
+([`pages.yml`](.github/workflows/pages.yml)).
 
----
+## Repo map
 
-## 📜 SourceForge heritage
+- `web/` — the app: `index.html`, `app.js`, `data/software.json`,
+  `s2-file-id.js` (shared S2 File Identifier), PWA bits
+  (`manifest.webmanifest`, `sw.js`, icons).
+- `scripts/` — release packaging (`build-releases.sh`, `gen-icons.py`,
+  per-platform `launchers/`).
+- `legacy/` — the original 2013 SourceForge PHP + MySQL directory site,
+  preserved for history (see [`legacy/README.md`](legacy/README.md)).
+- `.github/workflows/` — CI (`build.yml`), Pages deploy (`pages.yml`),
+  releases (`release.yml`).
 
-This project originated on **SourceForge** before being migrated to GitHub. The legacy SourceForge entry, if still available, can be searched at:
+## Heritage
 
-🔗 https://sourceforge.net/projects/datarecoverfree/
+Data Recover Free began life on SourceForge as
+[Datarecoverfree](https://sourceforge.net/projects/datarecoverfree/), an
+open-source PHP/MySQL freeware-directory script with configurable categories
+and user + webmaster ratings. Server-side PHP can't ship as cross-platform
+downloads, so the project was remade (with the owner's blessing) as this
+static, client-side app; the JSON data model mirrors the old `softwares` /
+`categories` / `os` database tables. The original source is kept in
+[`legacy/`](legacy/).
 
-The repository here at `socrtwo/datarecoverfree-SF` is the canonical, actively-maintained home. All future updates, issue tracking, and releases happen on GitHub.
-
-## 🛠️ Contributing
-
-Issues and pull requests are welcome at [https://github.com/socrtwo/datarecoverfree-SF/issues](https://github.com/socrtwo/datarecoverfree-SF/issues).
-
-## 📝 License
-
-See the [LICENSE](https://github.com/socrtwo/datarecoverfree-SF/blob/main/LICENSE) file in this repository. If no license file is present, the project is shared as-is for reference and personal use; please contact the maintainer for other use cases.
-
----
-
-*Maintained by [@socrtwo](https://github.com/socrtwo)*
+**License:** MIT — see [LICENSE](LICENSE).
